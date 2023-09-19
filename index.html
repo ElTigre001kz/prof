@@ -13,19 +13,21 @@
         .carousel-container {
             position: relative;
             overflow: hidden;
-            width: 100%; /* Уменьшаем ширину карусели до 70% */
+            width: 100%;
             margin: 0 auto;
         }
 
         .carousel-wrapper {
             display: flex;
-            transition: transform 0.5s ease; /* Плавное прокручивание */
+            transition: transform 0.5s ease;
+            margin-left: 0px; /* Отрицательный отступ для скрытия части предыдущего слайда */
         }
 
         .carousel-slide {
-            flex: 0 0 100%; /* Расчет ширины слайда на 100% */
+            flex: 0 0 calc(100%); /* Учитываем отступ между слайдами */
             max-height: 100%;
-            object-fit: cover; /* Пропорции картинок будут соблюдены */
+            object-fit: cover;
+            margin-right: 0px; /* Добавляем отступ между слайдами */
         }
 
         button {
@@ -39,9 +41,6 @@
         <div class="carousel-container">
             <div class="carousel-wrapper" id="carousel">
                 <!-- Ваши изображения -->
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
@@ -65,7 +64,7 @@
         let currentSlide = 0;
 
         function showSlide(slideIndex) {
-            const newPosition = -slideIndex * 100; // Ширина слайда уже на 100%
+            const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
             wrapper.style.transform = `translateX(${newPosition}%)`;
         }
 
