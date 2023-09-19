@@ -58,69 +58,73 @@
     <button id="prevBtn">Предыдущий</button>
     <button id="nextBtn">Следующий</button>
     <script>
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const wrapper = document.getElementById('carousel');
-        const slides = document.querySelectorAll('.carousel-slide');
-        let currentSlide = 0;
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let touchDragging = false;
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const wrapper = document.getElementById('carousel');
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchDragging = false;
+    let touchMoveX = 0; // Новая переменная для отслеживания перемещения при перетаскивании
 
-        function showSlide(slideIndex) {
-            const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
-            wrapper.style.transform = `translateX(${newPosition}%)`;
+    function showSlide(slideIndex) {
+        const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
+        wrapper.style.transform = `translateX(${newPosition}%)`;
+    }
+
+    function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
         }
-
-        function nextSlide() {
-            currentSlide++;
-            if (currentSlide >= slides.length) {
-                currentSlide = 0;
-            }
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide--;
-            if (currentSlide < 0) {
-                currentSlide = slides.length - 1;
-            }
-            showSlide(currentSlide);
-        }
-
-        window.addEventListener('resize', () => {
-            showSlide(currentSlide);
-        });
-
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-
-        // Обработчики событий для пролистывания пальцем
-        wrapper.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchDragging = false;
-        });
-
-        wrapper.addEventListener('touchmove', (e) => {
-            touchEndX = e.touches[0].clientX;
-            if (!touchDragging) {
-                touchDragging = true;
-            }
-        });
-
-        wrapper.addEventListener('touchend', () => {
-            if (touchDragging) {
-                if (touchEndX < touchStartX) {
-                    nextSlide();
-                } else if (touchEndX > touchStartX) {
-                    prevSlide();
-                }
-                touchDragging = false;
-            }
-        });
-
-        // Добавьте следующую строку для установки начального положения карусели
         showSlide(currentSlide);
-    </script>
+    }
+
+    function prevSlide() {
+        currentSlide--;
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+        showSlide(currentSlide);
+    }
+
+    window.addEventListener('resize', () => {
+        showSlide(currentSlide);
+    });
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Обработчики событий для пролистывания пальцем
+    wrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchDragging = false;
+        touchMoveX = 0; // Сбрасываем перемещение при начале перетаскивания
+    });
+
+    wrapper.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+        if (!touchDragging) {
+            touchDragging = true;
+        }
+        touchMoveX = touchEndX - touchStartX; // Вычисляем перемещение при перетаскивании
+        showSlide(currentSlide); // Показываем слайд с учетом перемещения
+    });
+
+    wrapper.addEventListener('touchend', () => {
+        if (touchDragging) {
+            if (touchMoveX < -50) { // Используйте нужный вам порог для определения пролистывания
+                nextSlide();
+            } else if (touchMoveX > 50) { // Используйте нужный вам порог для определения пролистывания
+                prevSlide();
+            }
+            touchDragging = false;
+        }
+    });
+
+    // Добавьте следующую строку для установки начального положения карусели
+    showSlide(currentSlide);
+</script>
 </body>
 </html>
