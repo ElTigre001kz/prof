@@ -66,10 +66,10 @@
     let touchStartX = 0;
     let touchEndX = 0;
     let touchDragging = false;
-    let touchMoveX = 0; // Новая переменная для отслеживания перемещения при перетаскивании
+    let touchMoveX = 0;
 
     function showSlide(slideIndex) {
-        const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
+        const newPosition = -slideIndex * (100); 
         wrapper.style.transform = `translateX(${newPosition}%)`;
     }
 
@@ -100,7 +100,7 @@
     wrapper.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
         touchDragging = false;
-        touchMoveX = 0; // Сбрасываем перемещение при начале перетаскивания
+        touchMoveX = 0;
     });
 
     wrapper.addEventListener('touchmove', (e) => {
@@ -108,22 +108,24 @@
         if (!touchDragging) {
             touchDragging = true;
         }
-        touchMoveX = touchEndX - touchStartX; // Вычисляем перемещение при перетаскивании
-        showSlide(currentSlide); // Показываем слайд с учетом перемещения
+        touchMoveX = touchEndX - touchStartX;
+        // Убедитесь, что перемещение при прокрутке не слишком маленькое, чтобы избежать случайных переключений слайдов
+        if (Math.abs(touchMoveX) > 50) {
+            showSlide(currentSlide + Math.sign(touchMoveX));
+        }
     });
 
     wrapper.addEventListener('touchend', () => {
         if (touchDragging) {
-            if (touchMoveX < -50) { // Используйте нужный вам порог для определения пролистывания
+            if (touchMoveX < -50) {
                 nextSlide();
-            } else if (touchMoveX > 50) { // Используйте нужный вам порог для определения пролистывания
+            } else if (touchMoveX > 50) {
                 prevSlide();
             }
             touchDragging = false;
         }
     });
 
-    // Добавьте следующую строку для установки начального положения карусели
     showSlide(currentSlide);
 </script>
 </body>
