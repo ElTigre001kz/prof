@@ -24,9 +24,15 @@
         }
 
         .carousel-slide {
-            flex: 0 0 100%; /* Измените ширину слайда на 100% */
+            flex: 0 0 calc(100% - 10px); /* Измените ширину слайда на 100% с вычетом отступа */
             max-height: 100%;
             object-fit: cover;
+            margin-right: 10px; /* Добавьте отступ между слайдами */
+        }
+
+        /* Уберем отступ для последнего слайда */
+        .carousel-slide:last-child {
+            margin-right: 0;
         }
 
         button {
@@ -63,8 +69,9 @@
         let currentSlide = 0;
 
         function showSlide(slideIndex) {
-            const newPosition = -slideIndex * 100 - 5;
-            wrapper.style.transform = `translateX(${newPosition}%)`;
+            const slideWidth = slides[0].offsetWidth + 10; // Ширина слайда + отступ
+            const newPosition = -slideIndex * slideWidth;
+            wrapper.style.transform = `translateX(${newPosition}px)`;
         }
 
         function nextSlide() {
