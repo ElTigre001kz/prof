@@ -65,6 +65,7 @@
         let currentSlide = 0;
         let touchStartX = 0;
         let touchEndX = 0;
+        let touchDragging = false;
 
         function showSlide(slideIndex) {
             const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
@@ -94,20 +95,27 @@
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
 
-        // Добавьте следующие обработчики событий для пролистывания пальцем
+        // Обработчики событий для пролистывания пальцем
         wrapper.addEventListener('touchstart', (e) => {
             touchStartX = e.touches[0].clientX;
+            touchDragging = false;
         });
 
         wrapper.addEventListener('touchmove', (e) => {
             touchEndX = e.touches[0].clientX;
+            if (!touchDragging) {
+                touchDragging = true;
+            }
         });
 
         wrapper.addEventListener('touchend', () => {
-            if (touchEndX < touchStartX) {
-                nextSlide();
-            } else if (touchEndX > touchStartX) {
-                prevSlide();
+            if (touchDragging) {
+                if (touchEndX < touchStartX) {
+                    nextSlide();
+                } else if (touchEndX > touchStartX) {
+                    prevSlide();
+                }
+                touchDragging = false;
             }
         });
 
