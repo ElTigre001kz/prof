@@ -58,73 +58,69 @@
     <button id="prevBtn">Предыдущий</button>
     <button id="nextBtn">Следующий</button>
     <script>
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const wrapper = document.getElementById('carousel');
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let touchDragging = false;
-    let touchOffsetX = 0; // Новая переменная для отслеживания смещения при перетаскивании
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const wrapper = document.getElementById('carousel');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchDragging = false;
 
-    function showSlide(slideIndex) {
-        const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
-        wrapper.style.transform = `translateX(${newPosition + touchOffsetX}%)`; // Учитываем смещение
-    }
-
-    function nextSlide() {
-        currentSlide++;
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
+        function showSlide(slideIndex) {
+            const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
+            wrapper.style.transform = `translateX(${newPosition}%)`;
         }
-        showSlide(currentSlide);
-    }
 
-    function prevSlide() {
-        currentSlide--;
-        if (currentSlide < 0) {
-            currentSlide = slides.length - 1;
-        }
-        showSlide(currentSlide);
-    }
-
-    window.addEventListener('resize', () => {
-        showSlide(currentSlide);
-    });
-
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-
-    // Обработчики событий для пролистывания пальцем
-    wrapper.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        touchDragging = false;
-        touchOffsetX = 0; // Сбрасываем смещение при начале перетаскивания
-    });
-
-    wrapper.addEventListener('touchmove', (e) => {
-        touchEndX = e.touches[0].clientX;
-        if (!touchDragging) {
-            touchDragging = true;
-        }
-        touchOffsetX = touchEndX - touchStartX; // Вычисляем смещение при перетаскивании
-        showSlide(currentSlide); // Показываем слайд с учетом смещения
-    });
-
-    wrapper.addEventListener('touchend', () => {
-        if (touchDragging) {
-            if (touchEndX < touchStartX) {
-                nextSlide();
-            } else if (touchEndX > touchStartX) {
-                prevSlide();
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
             }
-            touchDragging = false;
+            showSlide(currentSlide);
         }
-    });
 
-    // Добавьте следующую строку для установки начального положения карусели
-    showSlide(currentSlide);
-</script>
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            showSlide(currentSlide);
+        }
+
+        window.addEventListener('resize', () => {
+            showSlide(currentSlide);
+        });
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Обработчики событий для пролистывания пальцем
+        wrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchDragging = false;
+        });
+
+        wrapper.addEventListener('touchmove', (e) => {
+            touchEndX = e.touches[0].clientX;
+            if (!touchDragging) {
+                touchDragging = true;
+            }
+        });
+
+        wrapper.addEventListener('touchend', () => {
+            if (touchDragging) {
+                if (touchEndX < touchStartX) {
+                    nextSlide();
+                } else if (touchEndX > touchStartX) {
+                    prevSlide();
+                }
+                touchDragging = false;
+            }
+        });
+
+        // Добавьте следующую строку для установки начального положения карусели
+        showSlide(currentSlide);
+    </script>
 </body>
 </html>
