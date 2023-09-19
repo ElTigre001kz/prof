@@ -21,6 +21,7 @@
             display: flex;
             transition: transform 0.5s ease;
             margin-left: 0px; /* Отрицательный отступ для скрытия части предыдущего слайда */
+            touch-action: pan-y; /* Разрешаем вертикальное прокручивание на устройствах с сенсорным экраном */
         }
 
         .carousel-slide {
@@ -62,6 +63,8 @@
         const wrapper = document.getElementById('carousel');
         const slides = document.querySelectorAll('.carousel-slide');
         let currentSlide = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         function showSlide(slideIndex) {
             const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
@@ -90,6 +93,23 @@
 
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
+
+        // Добавьте следующие обработчики событий для пролистывания пальцем
+        wrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        wrapper.addEventListener('touchmove', (e) => {
+            touchEndX = e.touches[0].clientX;
+        });
+
+        wrapper.addEventListener('touchend', () => {
+            if (touchEndX < touchStartX) {
+                nextSlide();
+            } else if (touchEndX > touchStartX) {
+                prevSlide();
+            }
+        });
 
         // Добавьте следующую строку для установки начального положения карусели
         showSlide(currentSlide);
