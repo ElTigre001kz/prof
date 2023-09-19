@@ -13,20 +13,18 @@
         .carousel-container {
             position: relative;
             overflow: hidden;
-            width: 70%; /* Уменьшаем ширину карусели до 70% */
+            width: 100%; /* Уменьшаем ширину карусели до 70% */
             margin: 0 auto;
         }
 
         .carousel-wrapper {
             display: flex;
             transition: transform 0.5s ease; /* Плавное прокручивание */
-            flex-wrap: nowrap; /* Отключение переноса слайдов на новую строку */
         }
 
         .carousel-slide {
             flex: 0 0 100%; /* Расчет ширины слайда на 100% */
             max-height: 100%;
-            margin-right: 10px;
             object-fit: cover; /* Пропорции картинок будут соблюдены */
         }
 
