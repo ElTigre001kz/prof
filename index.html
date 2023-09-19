@@ -1,14 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Карусель обоев</title>
+    <style>
+        body {
+            text-align: center;
+        }
 
-<html>
-  <head>
-    <link rel="stylesheet" href="https://active-vision.ru/wa-data/public/blog/download/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://active-vision.ru/wa-data/public/blog/download/owl.theme.default.min.css">  
-    <base target="_top">
-    
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 70%; /* Уменьшаем ширину карусели до 70% */
+            margin: 0 auto;
+        }
 
-  </head>
-  <body>
-<iframe src="https://cdn.iframe.ly/api/iframely?url=https://script.google.com/macros/s/AKfycbxiO0Ywqwhouy53wBnRWIX-1kpbFGJ5FPLRwCpb85i7HJn42iBOvhQKr0bIFqFhpe_pwQ/exec&api_key=96cc219fca8da2ea9f4d54" frameborder="0" width="100%" height="100%"></iframe>
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease; /* Плавное прокручивание */
+            flex-wrap: nowrap; /* Отключение переноса слайдов на новую строку */
+            justify-content: flex-start; /* Выравнивание слайдов слева */
+        }
 
- </body>
+        .carousel-slide {
+            flex: 0 0 calc(33.33% - 10px); /* Расчет ширины слайда с учетом отступа */
+            max-width: calc(33.33% - 10px); /* Максимальная ширина слайда с учетом отступа */
+            max-height: 300px;
+            margin-right: 10px;
+            object-fit: cover; /* Пропорции картинок будут соблюдены */
+        }
+
+        button {
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* Медиа-запрос для мобильных устройств */
+        @media (max-width: 768px) {
+            .carousel-container {
+                width: 100%; /* Увеличиваем ширину карусели на мобильных устройствах */
+              height: 100%;
+            }
+
+            .carousel-slide {
+                flex: 0 0 100%; /* Устанавливаем ширину слайда на мобильных устройствах на 100% */
+                max-width: 100%; /* Устанавливаем максимальную ширину слайда на мобильных устройствах на 100% */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="раку">
+        <div class="carousel-container">
+            <div class="carousel-wrapper" id="carousel">
+                <!-- Ваши изображения -->
+                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
+                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
+                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
+                <!-- Ваши изображения -->
+            </div>
+        </div>
+    </div>
+    <button id="prevBtn">Предыдущий</button>
+    <button id="nextBtn">Следующий</button>
+    <script>
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const wrapper = document.getElementById('carousel');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+
+        function showSlide(slideIndex) {
+            const slideWidth = slides[0].offsetWidth + 10; // Ширина слайда с учетом отступа
+            const newPosition = -slideIndex * slideWidth;
+            wrapper.style.transform = `translateX(${newPosition}px)`;
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length - 1) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            showSlide(currentSlide);
+        }
+
+        window.addEventListener('resize', () => {
+            showSlide(currentSlide);
+        });
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Добавьте следующую строку для установки начального положения карусели
+        showSlide(currentSlide);
+    </script>
+</body>
 </html>
