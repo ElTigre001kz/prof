@@ -20,14 +20,13 @@
         .carousel-wrapper {
             display: flex;
             transition: transform 0.5s ease;
-            margin-left: 0px; /* Отрицательный отступ для скрытия части предыдущего слайда */
+            margin-left: 0px; /* Измените отрицательный отступ на 0 */
         }
 
         .carousel-slide {
-            flex: 0 0 calc(100%); /* Учитываем отступ между слайдами */
+            flex: 0 0 100%; /* Измените ширину слайда на 100% */
             max-height: 100%;
             object-fit: cover;
-            margin-right: 0px; /* Добавляем отступ между слайдами */
         }
 
         button {
@@ -64,7 +63,7 @@
         let currentSlide = 0;
 
         function showSlide(slideIndex) {
-            const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
+            const newPosition = -slideIndex * 100;
             wrapper.style.transform = `translateX(${newPosition}%)`;
         }
 
