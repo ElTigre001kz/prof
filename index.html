@@ -14,16 +14,14 @@
     body {
     text-align: center;
     background-color: #212529;
-    max-width: 100% !important;
-    margin: 0 auto;
+    margin: 0; /* Убираем отступы по умолчанию */
 }
 
 .carousel-container {
     position: relative;
     overflow: hidden;
-    width: 100%;
+    width: 100%; /* Используем 100% ширины для всего экрана */
     margin: 0 auto;
-    max-width: 360px; /* Ширина карусели на мобильной версии */
 }
 
 .carousel-wrapper {
@@ -37,15 +35,12 @@
 }
 
 .carousel-slide img {
-/*     width: 100%;  Заполнение ширины слайда 
-    height: auto;  С учетом пропорций  */
     width: 100%;
-    height: 498px;
-    width: calc(100% - 10px);
-    height: calc(498px - 10px);
+    height: auto; /* Позволяет изображению сохранять пропорции */
     object-fit: cover;
     border: 2px solid white;
     border-radius: 10px;
+    padding: 0px;
 }
 
 .image-info {
@@ -73,34 +68,6 @@
             <!-- Ваши изображения с названием фильма и жанром -->
             <div class="carousel-slide">
                 <img src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
-                <div class="image-info">
-                    <p class="movie-title">Название фильма 1</p>
-                    <p class="genre">Жанр 1</p>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/09/9e2d589c3152427a2a3a.jpg" alt="Обои 1">
-                <div class="image-info">
-                    <p class="movie-title">Название фильма 1</p>
-                    <p class="genre">Жанр 1</p>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/08/b18f6dcb7720c387553f.jpg" alt="Обои 1">
-                <div class="image-info">
-                    <p class="movie-title">Название фильма 1</p>
-                    <p class="genre">Жанр 1</p>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/08/c1479eeef06a62941d5c.jpg" alt="Обои 1">
-                <div class="image-info">
-                    <p class="movie-title">Название фильма 1</p>
-                    <p class="genre">Жанр 1</p>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/08/8616ae13bfe73750fbbb.jpg" alt="Обои 1">
                 <div class="image-info">
                     <p class="movie-title">Название фильма 1</p>
                     <p class="genre">Жанр 1</p>
