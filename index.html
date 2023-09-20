@@ -52,33 +52,11 @@
         }
 
         .carousel-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-height: 100%;
-    object-fit: cover;
-    margin-right: 0px; /* Добавляем отступ между слайдами */
-}
-
-.carousel-slide img {
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: 100%;
-}
-
-.image-info {
-    margin-top: 10px;
-}
-
-.movie-title {
-    font-weight: bold;
-}
-
-.genre {
-    color: #666;
-}
+            flex: 0 0 calc(100%); /* Учитываем отступ между слайдами */
+            max-height: 100%;
+            object-fit: cover;
+            margin-right: 0px; /* Добавляем отступ между слайдами */
+        }
 
         button {
             margin-top: 10px;
@@ -123,58 +101,17 @@
     <div class="раку" style= "border-radius: 10px; border: 4px solid #ccc; margin: 2px;">
         <div class="carousel-container">
             <div class="carousel-wrapper" id="carousel">
-                <div class="carousel-slide">
-            <img src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 1">
-            <div class="image-info">
-                <p class="movie-title">Название фильма 1</p>
-                <p class="genre">Жанр 1</p>
-            </div>
-        </div>
-		    <div class="carousel-slide">
-            <img src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
-            <div class="image-info">
-                <p class="movie-title">Название фильма 1</p>
-                <p class="genre">Жанр 1</p>
-            </div>
-        </div>
-		    <div class="carousel-slide">
-            <img src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 1">
-            <div class="image-info">
-                <p class="movie-title">Название фильма 1</p>
-                <p class="genre">Жанр 1</p>
-            </div>
-        </div>
-		    <div class="carousel-slide">
-            <img src="https://st.kinovod040523.cc/storage/360x534/posters/2022/01/638a3dc8a5ff0f160956.jpg" alt="Обои 1">
-            <div class="image-info">
-                <p class="movie-title">Название фильма 1</p>
-                <p class="genre">Жанр 1</p>
-            </div>
-        </div>
-		    <div class="carousel-slide">
-            <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/09/71faf7c77be0a397d8e8.jpg" alt="Обои 1">
-            <div class="image-info">
-                <p class="movie-title">Название фильма 1</p>
-                <p class="genre">Жанр 1</p>
-            </div>
-        </div>
-		    <div class="carousel-slide">
-            <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/09/9e2d589c3152427a2a3a.jpg" alt="Обои 1">
-            <div class="image-info">
-                <p class="movie-title">Название фильма 1</p>
-                <p class="genre">Жанр 1</p>
-            </div>
-        </div>
+                
                 <!-- Ваши изображения -->
-<!--                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
                 <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3"> -->
+                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
+                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
+                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
+                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
                 <!-- Ваши изображения -->
             </div>
         </div>
