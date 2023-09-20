@@ -6,186 +6,153 @@
     <link rel="stylesheet" href="styles.css">
     <title>Карусель обоев</title>
     <style>
- .bee-row-1 .bee-col-1 .bee-block-9 {
-    color: #000;
-    text-align: center;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.bee-icon {
-    vertical-align: middle;
-    display: inline-block;
-}
-.bee-icon .bee-content {
-    align-items: center;
-    display: flex;
-}
-.bee-row-1 .bee-col-1 .bee-block-9 .bee-icon-image {
-    padding: 0 5px 5px;
-}	    
-        @media (max-width: 767px) {
+    @media (max-width: 768px) {
     button {
         display: none;
     }
 }
-        body {
-            text-align: center;
-	    background-color: #212529;
-	   max-width: 100% !important;
-         margin: 0px auto 0 !important;
-        }
+    body {
+    text-align: center;
+    background-color: #212529;
+    max-width: 100% !important;
+    margin: 0 auto;
+}
 
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            margin: 0 auto;
-        }
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 360px; /* Ширина карусели на мобильной версии */
+}
 
-        .carousel-wrapper {
-            display: flex;
-            transition: transform 0.5s ease;
-            margin-left: 0px; /* Отрицательный отступ для скрытия части предыдущего слайда */
-            touch-action: pan-y; /* Разрешаем вертикальное прокручивание на устройствах с сенсорным экраном */
-        }
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
 
-        .carousel-slide {
-            flex: 0 0 calc(100%); /* Учитываем отступ между слайдами */
-            max-height: 100%;
-            object-fit: cover;
-            margin-right: 0px; /* Добавляем отступ между слайдами */
-        }
+.carousel-slide {
+    flex: 0 0 100%; /* 100% ширина для одного слайда */
+    max-height: 100%;
+    object-fit: cover;
+    position: relative;
+}
 
-        button {
-            margin-top: 10px;
-            cursor: pointer;
-        }
+.carousel-slide img {
+    width: 100%; /* Заполнение ширины слайда */
+}
+
+.image-info {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.movie-title {
+    font-weight: bold;
+}
+
+.genre {
+    font-style: italic;
+}    
     </style>
 </head>
 <body>
-    <div class="bee-block bee-block-2 bee-image bee-desktop_hide" style="padding-bottom: 5px;"><img class="bee-center bee-fixedwidth bee-fullwidthOnMobile" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/c14e6b58-2bfe-4810-bc80-1392880e4cdc/5645637/logo%20%D0%B1%D0%B5%D0%B7%20%D1%84%D0%BE%D0%BD%D0%B0.png" style="max-width:105px;" alt=""></div>
-   <div class="bee-block bee-block-9 bee-icons bee-desktop_hide">
-						<div class="bee-icon bee-icon-first">
-							<div class="bee-content">
-								<div class="bee-icon-image"><a href="https://www.tiktok.com/@kinowatch_001?lang=ru-RU" target="_blank"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/c14e6b58-2bfe-4810-bc80-1392880e4cdc/5645637/tiktok.png" height="32px" width="auto"></a></div>
-							</div>
-						</div>
-						<div class="bee-icon ">
-							<div class="bee-content">
-								<div class="bee-icon-image"><a href="https://vk.com/kinowatch_bot" target="_blank"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/c14e6b58-2bfe-4810-bc80-1392880e4cdc/5645637/iconfinder-social-media-applications-32vk-4102593_113806.png" height="32px" width="auto"></a></div>
-							</div>
-						</div>
-						<div class="bee-icon ">
-							<div class="bee-content">
-								<div class="bee-icon-image"><a href="https://ok.ru/group/58259070976148" target="_blank"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/c14e6b58-2bfe-4810-bc80-1392880e4cdc/5645637/odnoklassniki.png" height="32px" width="auto"></a></div>
-							</div>
-						</div>
-						<div class="bee-icon ">
-							<div class="bee-content">
-								<div class="bee-icon-image"><a href="https://www.instagram.com/kinowatch_001/" target="_blank"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/c14e6b58-2bfe-4810-bc80-1392880e4cdc/5645637/instagram.png" height="32px" width="auto"></a></div>
-							</div>
-						</div>
-						<div class="bee-icon ">
-							<div class="bee-content">
-								<div class="bee-icon-image"><a href="https://www.youtube.com/@kinowatch_001/featured" target="_blank"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/c14e6b58-2bfe-4810-bc80-1392880e4cdc/5645637/youtube.png" height="32px" width="auto"></a></div>
-							</div>
-						</div>
-						<div class="bee-icon bee-icon-last">
-							<div class="bee-content">
-								<div class="bee-icon-image"><a href="https://t.me/SearchWatch_bot" target="_blank"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/c14e6b58-2bfe-4810-bc80-1392880e4cdc/5645637/telegram.png" height="32px" width="auto"></a></div>
-							</div>
-						</div>
-					</div>
-    <div class="раку" style= "border-radius: 10px; border: 4px solid #ccc; margin: 2px;">
-        <div class="carousel-container">
-            <div class="carousel-wrapper" id="carousel">
-                
-                <!-- Ваши изображения -->
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/c71291ff7697278e74b5.jpg" alt="Обои 2">
-                <img class="carousel-slide" src="https://st.kinovod040523.cc/storage/242x358/posters/2023/09/6f3f90dfb44101da1afc.jpg" alt="Обои 3">
-                <!-- Ваши изображения -->
+    <div class="carousel-container">
+        <div class="carousel-wrapper" id="carousel">
+            <!-- Ваши изображения с названием фильма и жанром -->
+            <div class="carousel-slide">
+                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2018/2/qxTaVuhSqm.jpg" alt="Обои 1">
+                <div class="image-info">
+                    <p class="movie-title">Название фильма 1</p>
+                    <p class="genre">Жанр 1</p>
+                </div>
             </div>
+            <div class="carousel-slide">
+                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/09/9e2d589c3152427a2a3a.jpg" alt="Обои 1">
+                <div class="image-info">
+                    <p class="movie-title">Название фильма 1</p>
+                    <p class="genre">Жанр 1</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/08/b18f6dcb7720c387553f.jpg" alt="Обои 1">
+                <div class="image-info">
+                    <p class="movie-title">Название фильма 1</p>
+                    <p class="genre">Жанр 1</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/08/c1479eeef06a62941d5c.jpg" alt="Обои 1">
+                <div class="image-info">
+                    <p class="movie-title">Название фильма 1</p>
+                    <p class="genre">Жанр 1</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://st.kinovod040523.cc/storage/360x534/posters/2023/08/8616ae13bfe73750fbbb.jpg" alt="Обои 1">
+                <div class="image-info">
+                    <p class="movie-title">Название фильма 1</p>
+                    <p class="genre">Жанр 1</p>
+                </div>
+            </div>
+            <!-- Добавьте остальные изображения с аналогичной структурой -->
         </div>
     </div>
     <button id="prevBtn">Предыдущий</button>
     <button id="nextBtn">Следующий</button>
+    <script src="script.js"></script>
     <script>
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const wrapper = document.getElementById('carousel');
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let touchDragging = false;
-    let touchMoveX = 0; // Новая переменная для отслеживания перемещения при перетаскивании
+        const wrapper = document.getElementById('carousel');
+const slides = document.querySelectorAll('.carousel-slide');
+const numSlides = slides.length;
 
-    function showSlide(slideIndex) {
-        const newPosition = -slideIndex * (100); // Учитываем отступ между слайдами
-        wrapper.style.transform = `translateX(${newPosition}%)`;
-    }
+let currentSlide = 0;
+let startX = null;
 
-    function nextSlide() {
-        currentSlide++;
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
-        }
-        showSlide(currentSlide);
-    }
+function showSlide(slideIndex) {
+    const newPosition = -slideIndex * 100;
+    wrapper.style.transform = `translateX(${newPosition}%)`;
+}
 
-    function prevSlide() {
-        currentSlide--;
-        if (currentSlide < 0) {
-            currentSlide = slides.length - 1;
-        }
-        showSlide(currentSlide);
-    }
-
-    window.addEventListener('resize', () => {
-        showSlide(currentSlide);
-    });
-
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-
-    // Обработчики событий для пролистывания пальцем
-    wrapper.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        touchDragging = false;
-        touchMoveX = 0; // Сбрасываем перемещение при начале перетаскивания
-    });
-
-    wrapper.addEventListener('touchmove', (e) => {
-        touchEndX = e.touches[0].clientX;
-        if (!touchDragging) {
-            touchDragging = true;
-        }
-        touchMoveX = touchEndX - touchStartX; // Вычисляем перемещение при перетаскивании
-        showSlide(currentSlide); // Показываем слайд с учетом перемещения
-    });
-
-    wrapper.addEventListener('touchend', () => {
-        if (touchDragging) {
-            if (touchMoveX < -50) { // Используйте нужный вам порог для определения пролистывания
-                nextSlide();
-            } else if (touchMoveX > 50) { // Используйте нужный вам порог для определения пролистывания
-                prevSlide();
-            }
-            touchDragging = false;
-        }
-    });
-
-    // Добавьте следующую строку для установки начального положения карусели
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % numSlides;
     showSlide(currentSlide);
-</script>
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + numSlides) % numSlides;
+    showSlide(currentSlide);
+}
+
+function handleTouchStart(event) {
+    startX = event.touches[0].clientX;
+}
+
+function handleTouchEnd(event) {
+    if (startX === null) {
+        return;
+    }
+
+    const endX = event.changedTouches[0].clientX;
+    const deltaX = endX - startX;
+
+    if (deltaX > 50) {
+        prevSlide(); // Переключение на предыдущий слайд при свайпе вправо
+    } else if (deltaX < -50) {
+        nextSlide(); // Переключение на следующий слайд при свайпе влево
+    }
+
+    startX = null;
+}
+
+// Добавьте слушатели событий для событий "touchstart" и "touchend"
+wrapper.addEventListener('touchstart', handleTouchStart);
+wrapper.addEventListener('touchend', handleTouchEnd);
+
+showSlide(currentSlide);
+    </script>
 </body>
 </html>
